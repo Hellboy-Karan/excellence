@@ -1,23 +1,51 @@
-import logo from './logo.svg';
 import './App.css';
+import EvenNumber from './components/evenNumber';
+import Maximumno from './components/consecutive';
+import Duplicate from './components/findduplicate';
+import SortArray from './components/Sortarray';
+import TodoList from "./components/TodoList";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <div>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Question1</Link>
+              </li>
+              <li>
+                <Link to="/consecutive">Question2</Link>
+              </li>
+              <li>
+                <Link to="/repeatednumber">Question3</Link>
+              </li>
+              <li>
+                <Link to="#">Question4</Link>
+              </li>
+              <li>
+                <Link to="/SortArray">Question5</Link>
+              </li>
+              <li>
+                <Link to="/todolist">TodoList</Link>
+              </li>
+            </ul>
+          </nav>
+          <Switch>
+            <Route path="/" exact><EvenNumber /></Route>
+            <Route path="/consecutive" exact><Maximumno /></Route>
+            <Route path="/repeatednumber" exact><Duplicate /></Route>
+            <Route path="/todolist" exact><TodoList /></Route>
+          </Switch>
+        </div>
+      </Router>
     </div>
   );
 }
